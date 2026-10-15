@@ -1,35 +1,20 @@
 package PuzzleGame.objects;
 
-public class Switch extends GameObject
-{
-    private boolean active;
+public class Switch extends GameObject {
+    private boolean activated;
 
-    public Switch(int x, int y)
-    {
+    public Switch(int x, int y) {
         super(x, y);
-        active = false;
+        activated = false;
+        loadImage("assets/images/puzzle objects/switch.png");
     }
-
-    public boolean isActive()
-    {
-        return active;
+    public boolean isActivated() {
+        return activated;
     }
-
-    public void activate()
-    {
-        active = true;
+    public void activate() {
+        activated = true;
     }
-
-    public void deactivate()
-    {
-        active = false;
-    }
-
-    public void check(Box box)
-    {
-        if (box.getX() == x && box.getY() == y)
-        {
-            activate();
-        }
+    public void deactivate() {
+        activated = false;
     }
 }
