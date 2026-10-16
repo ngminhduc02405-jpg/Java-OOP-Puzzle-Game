@@ -144,7 +144,7 @@ public class UI {
         // --- Hướng dẫn điều khiển ---
         g2.setFont(smallFont);
         g2.setColor(new Color(150, 150, 180));
-        String controls = "Controls: Arrow Keys to Move  |  P = Pause";
+        String controls = "Controls: Arrow Keys to Move  |  R = Restart  |  P = Pause";
         int ctrlX = getXForCenteredText(controls, g2);
         g2.drawString(controls, ctrlX, sh - 60);
 
@@ -225,11 +225,12 @@ public class UI {
         g2.fillRoundRect(12, 10, 18, 18, 4, 4);
         g2.setColor(new Color(10, 10, 30));
         g2.setFont(tinyFont);
-        g2.drawString("1", 17, 24);
+        int levelNumber = gp.getCurrentLevelNumber();
+        g2.drawString(Integer.toString(levelNumber), 17, 24);
 
         g2.setFont(smallFont);
         g2.setColor(Color.WHITE);
-        g2.drawString("Level 1", 38, 27);
+        g2.drawString("Level " + levelNumber, 38, 27);
 
         // --- Giữa: Tên game ---
         g2.setFont(tinyFont);
@@ -241,7 +242,7 @@ public class UI {
         // --- Bên phải: Hướng dẫn ---
         g2.setFont(tinyFont);
         g2.setColor(new Color(120, 120, 160));
-        String hint = "P = Pause";
+        String hint = "R = Restart  |  P = Pause";
         FontMetrics fm = g2.getFontMetrics();
         int hintX = sw - fm.stringWidth(hint) - 15;
         g2.drawString(hint, hintX, 26);

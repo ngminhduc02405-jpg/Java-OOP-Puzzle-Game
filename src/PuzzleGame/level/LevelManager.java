@@ -39,7 +39,49 @@ public class LevelManager {
         return true;
     }
 
-    // Trả về null nếu đã là level cuối
     public Level nextLevel() {
         if (isLastLevel()) return null;
         currentIndex++;
+        return getCurrentLevel();
+    }
+
+    public Level restartLevel() {
+        return getCurrentLevel();
+    }
+
+    private void loadDefaultLevels() {
+        addLevel(new Level(1, "First Steps", new String[] {
+            "############",
+            "#P........D#",
+            "#..........#",
+            "#.B.S......#",
+            "#..........#",
+            "#.......K..#",
+            "#..........#",
+            "#..........#",
+            "############"
+        }));
+        addLevel(new Level(2, "The Switch", new String[] {
+            "############",
+            "#P........D#",
+            "#..##......#",
+            "#..........#",
+            "#..........#",
+            "#...B..S...#",
+            "#.K........#",
+            "#..........#",
+            "############"
+        }));
+        addLevel(new Level(3, "The Exit", new String[] {
+            "############",
+            "#P........D#",
+            "#..........#",
+            "#..........#",
+            "#.....##...#",
+            "#..........#",
+            "#..K...B.S.#",
+            "#..........#",
+            "############"
+        }));
+    }
+}
